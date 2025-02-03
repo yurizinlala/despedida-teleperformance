@@ -1,0 +1,74 @@
+body {
+    font-family: 'Indie Flower', cursive;
+    background-color: #f0f8ff; /* Azul pastel claro */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.2);
+}
+
+.titulo-flutuante {
+    color: #4682b4; /* Azul médio */
+    font-size: 2.5em;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.subtitulo {
+    color: #6a8ebd;
+    font-size: 1.3em;
+    margin: 20px 0;
+}
+
+.senha-box {
+    margin: 30px 0;
+}
+
+input {
+    padding: 12px;
+    font-size: 1.1em;
+    border: 2px solid #87ceeb;
+    border-radius: 10px;
+    width: 200px;
+    margin-bottom: 15px;
+    font-family: 'Indie Flower', cursive;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background-color: #87ceeb; /* Azul pastel */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    font-family: 'Indie Flower', cursive;
+}
+
+button:hover {
+    background-color: #4682b4;
+    transform: scale(1.05);
+}
+
+.mensagem-erro {
+    color: #ff6b6b;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
