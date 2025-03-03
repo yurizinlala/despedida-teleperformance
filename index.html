@@ -1147,9 +1147,9 @@
   <footer>&copy; 2025 Yuri Dantas (Xexis). Todos os direitos reservados.</footer>
 
   <script>
-    
-    const clickSound = newAudio(click.mp3);
-    const pencilSound = newAudio(pencil.mp3);
+    const clickSound = new Audio('click.mp3');
+    const pencilSound = new Audio('pencil.mp3');
+    const errorSound = new Audio('error.mp3');
       
     // Senhas
     const friendMapping = {
@@ -1188,7 +1188,9 @@
         document.getElementById('landing').classList.add('hidden');
         errorBox.classList.add('hidden');
         document.getElementById(friendPageId).classList.remove('hidden');
+        pencilSound.play();
       } else {
+        errorSound.play();
         errorBox.innerText = "Senha incorreta, rapaz! Veja se escreveu certo!";
         errorBox.classList.remove('hidden');
         errorBox.classList.remove('animate__fadeOut');
@@ -1233,8 +1235,8 @@
       document.getElementById('michele').classList.add('hidden');
       
       document.getElementById('landing').classList.remove('hidden');
-      pencilSound.play();
       document.getElementById('passwordInput').value = "";
+      
       const landingTitle = document.querySelector('#landing h1');
       landingTitle.style.animation = 'none';
       setTimeout(() => { landingTitle.style.animation = ''; }, 10);
