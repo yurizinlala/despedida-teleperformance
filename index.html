@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartinhas Secretas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <!-- Biblioteca animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Indie Flower', cursive;
+    }
+    body {
+      margin: 0;
+      padding: 0 0 30px 0; /* espaço inferior para o footer */
+      background-color: #e0f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      z-index: 2;
+      margin: 10px;
+      position: relative;
+    }
+    .hidden { display: none; }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    #landing h1 {
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 10px;
+    }
+    .password-container {
+      position: relative;
+      width: 80%;
+      margin: 0 auto 20px;
+    }
+    input[type="password"],
+    input[type="text"] {
+      padding: 10px 40px 10px 10px;
+      border: 2px solid #b2ebf2;
+      border-radius: 5px;
+      width: 100%;
+    }
+    #togglePassword {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4dd0e1;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #26c6da;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 12px;
+      color: #555;
+    }
+    /* Caixa de erro com fade in/out */
+    #errorBox {
+      background-color: #ff6b6b;
+      color: white;
+      padding: 6px;
+      border-radius: 5px;
+      margin-top: 6px;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+    /* Área inferior dividida em duas colunas */
+    .bottom-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    .music-column, .meme-column {
+      width: 48%;
+    }
+    /* Responsividade: empilhar as colunas em telas pequenas */
+    @media (max-width: 600px) {
+      .bottom-section {
+        flex-direction: column;
+      }
+      .music-column, .meme-column {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    /* Estilização do embed do Spotify: largura alinhada com o design */
+    .spotify-embed {
+      width: 300px;
+      height: 80px;
+      border: none;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tela Inicial -->
+  <div id="landing" class="card animate__animated animate__fadeInDown">
+    <h1>Minha Doce Despedida!</h1>
+    <p>
+      E aí, galerinha que eu <b>gostum!</b> Por motivos que eu já devo ter dito no dia, chegou a hora
+      de dizer um "até logo" com muito doce (que vocês sempre acharam meio errado em eu comer direto)
+      e essa <b>surpresa diferente.</b>
+      <br><br>
+      Cada senha é uma coisa particular de cada pessoa que eu tive o prazer de conhecer.
+      <b>Desde piadas internas, bordões ou palavras das conversas mais aleatórias</b> que a gente pode 
+      ter tido.
+      <br><br>
+      Então, digita a sua e aproveita meu textinho <b>feito sob medida só pra vocês!</b>
+    </p>
+    <div class="password-container">
+      <input type="password" id="passwordInput" placeholder="Digita nossa senha aí...">
+      <span id="togglePassword">👁️</span>
+    </div>
+    <button onclick="checkPassword()">Desbloquear</button>
+  </div>
+  <div id="errorBox" class="hidden animate__animated"></div>
+
+  <!-- Página do Amigo 1 -->
+  <div id="elis" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Querida Elis,</h2>
+      <p>
+        Antes de tudo, não me mate por favor. Você sabe que eu nunca faço algo sem pensar bem direitinho
+        antes (diferente de você askdjaksjd), no entanto, tenha certeza que nossos rolês ainda estarão de
+        pé e que ainda vamos nos ver.
+        <br><br>
+        De todo o jeito, pra minha amiga de treinamento, de operação, de loucuras na parada de ônibus,
+        pra aquela que arrasa corações tanto na UFRN quanto na TP, eu não podia ir embora sem me despedir
+        adequadamente e lembrar do quanto foi incrível ter conhecido você e ter tido você ao meu lado pra
+        a gente fofocar bastante, pra você falar mal dos outros e eu te repreender, pra eu puxar seus
+        cabelos quando me desse vontade, enfim... muita coisa que a gente passou.
+        <br><br>
+        Por incrível que pareça, eu gosto muitão de você e não me vejo passando por todas aquelas tediosas
+        etapas da TP sem ter tido você perto de mim, foi muito divertido o que a gente viveu e tenho certeza
+        que o motivo foi porque eu tinha uma miniatura de pinscher do meu lado que por tudo ficava com raiva,
+        que vivia ou de TPM ou doente e que é dona do atendimento dela (deixe ela).
+        <br><br>
+        É impossível escrever em uma só carta o quanto eu admiro você e o quanto você é imporante pra mim,
+        mas que fique claro que você vai sempre ter um lugarzinho no meu coração! Valeu boy Elis, mas relaxe
+        que a gente ainda vai se encontrar pra comprar aquele salgado que você me deve.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music1', this)">Toca aí</button>
+        <div id="music1" class="hidden animate__animated">
+          <!-- Embed do Spotify: configure a URL abaixo conforme necessário -->
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/74QtGMeYncf3wP6fhg00zb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular):</strong></p>
+        <button onclick="revealMeme('meme1', this)">Mostra aí</button>
+        <div id="meme1" class="hidden animate__animated">
+          <img src="elis.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 2 -->
+  <div id="yuri" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">E aí, Yuri!</h2>
+      <p>
+        Eu sinto que não me despedi bem se é que você me entende skadjkaskjd, mas queria deixar
+        marcado aqui, você foi a única pessoa que eu conheci que tinha meu nome e que eu gostava
+        de falar pra todo mundo que esse Yuri trabalhava comigo e me divertia bastante.
+        <br><br>
+        Até minha noiva sabe que no fundo, meu coração tem dono e o dono dele tem como mãe, a grande
+        Lady Gaga, diva rainha. Muito obrigado pelos momentos dentro e fora da operação, pelos gestos
+        que você me ensinou e pelas palavras do twitter e seus significados.
+        <br><br>
+        Espero de verdade ainda te reecontrar, seja lá por Ponta Negra ou até em um lugar mais privado 👄.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music2', this)">Toca aí</button>
+        <div id="music2" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5ZLUm9eab8y3tqQ1OhQSHI?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular):</strong></p>
+        <button onclick="revealMeme('meme2', this)">Mostra aí</button>
+        <div id="meme2" class="hidden animate__animated">
+          <img src="yuri.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 3 -->
+  <div id="robert" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Salve, Robert!</h2>
+      <p>
+        Para o homem que foi digno de ser feito uma apresentação de slides enquanto eu trabalhava
+        explicando o motivo de nos darmos tão bem e sermos uma dupla invencível na época do email
+        (bons tempos), estarei me despedindo dos nossos BIG MOTHERFUCKING DABS assim que nos despediámos
+        da TP ou quando nos encontrávamos dentro da operação.
+        <br><br>
+        Fico feliz em pelo menos a gente ter dado um rolê antes de eu ir embora e que vai ficar marcado
+        o cara engraçado, gente boa, honesto, as vezes enputecido com os clientes que não sabem ler uma mensagem
+        gerando recontato, mas que é um menino com um coração gigante. Espero de verdade ainda te ver de novo
+        e falarmos sobre qualquer tipo de besteira ou shitpost que é mais nossa cara.
+        <br><br>
+        Vou nessa, mas torcendo que você continue sendo esse cara que você é! (Perdão pela promessa que eu disse
+        que antes de eu sair, eu iria ajudar você a arranjar uma namorada, mas se a gente se encontrar de novo, te
+        apresento alguma amiga minha que bate no mesmo nível que você).
+        <br><br>
+        Sucesso meu garoto!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music3', this)">Toca aí</button>
+        <div id="music3" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1W5EBVnH2LbZCt4lU6q0U0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme3', this)">Mostra aí</button>
+        <div id="meme3" class="hidden animate__animated">
+          <img src="robert.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 4 -->
+  <div id="larissa" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Ei, Larissa!</h2>
+      <p>
+        Pra essa menina que bate o mesmo neurônio que eu, tô indo nessa, mas não poderia ir embora
+        sem antes agradecer a você, por tudo que a gente passou junto, o quanto que a gente se divertiu,
+        o quanto de chocolate que a gente comeu juntos, e todas as conversas pelo teams que não tinham
+        nada com nada.
+        <br><br>
+        Fico muito feliz em ter conhecido alguém como você que ri de literalmente qualquer coisa, porque
+        se eu precisasse rir também, era só mandar qualquer coisa e eu ria junto com você (às vezes, nem 
+        precisava falar nada, era só encarar e era certo de os dois começarem a rir do nada).
+        <br><br>
+        Obrigado também pelos conselhos acerca de não me importar muito com a opinião dos outros, pode ter
+        certeza que eu vou levar pra vida, assim como também seus abraços e sua paixão por chocolate branco ksjdkjds.
+        Continue sendo essa pessoa incrível que você é pois foi isso que mais me marcou em você!
+        <br><br>
+        Por mais que não pareça, eu gosto de tu visse?
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music4', this)">Toca aí</button>
+        <div id="music4" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3fwPfeKpjmf1vZLtKk4PIT?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme4', this)">Mostra aí</button>
+        <div id="meme4" class="hidden animate__animated">
+          <img src="larissa.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 5 -->
+  <div id="vitoria" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Bora, Vitória!</h2>
+      <p>
+        Pois é, Vitória... Vou sentir saudades da pressão que eu fazia sobre você pra você "voluntariamente"
+        me adotar pra eu poder aproveitar de todos os seus streamings, ou então das piadas em relação a sua
+        juvenil e nova idade que possui (contém ironia, eu tinha que fazer uma última).
+        <br><br>
+        Mas falando sério agora, vou sentir muita falta dos puxão de orelha que você me dava quando eu aprontava
+        tanto dentro como fora da operação, sentir falta do Saci misterioso da operação revirando os cadeados tudin e
+        também dos confeitos que você trazia (óbvio).
+        <br><br>
+        Muito obrigado por me aturar em todas as vezes que eu dizia que gostava de você, espero muito poder conhecer
+        um dia seus filhinhos e comer um ferrero rocher quando suas promessa acabar. Continue sendo essa mulher
+        dedicada (haja hora extra), sincera e maravilhosa que cê é!
+        <br><br>
+        E pra não perder o costume: Eu gosto de você, viu?
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music5', this)">Toca aí</button>
+        <div id="music5" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7nJuEpX0qlpKXxUK0ioIMj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme5', this)">Mostra aí</button>
+        <div id="meme5" class="hidden animate__animated">
+          <img src="vitoria.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 6 -->
+  <div id="aline" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Iaí, Aline!</h2>
+      <p>
+        Olha aí se não é ela, a mãe mais incrível daquela operação, mandando a ver no chat dessa, tendo às vezes
+        que depender da Stela porque segundo ela, não consegue ser tão gentil com o cliente, mas tenho certeza que isso
+        é só coisa de sua cabeça, como que alguém que quando sorri até os olhos ficam apertados, não consegue ser gentil?
+        <br><br>
+        Queria deixar gravado minha gratidão por ter te conhecido, pois por mais que a gente não tenha tido muito contato,
+        o que tivemos foi bastante divertido. Te desejo toda sorte do mundo no seu processo pra ser a mais nova mãe motorizada
+        da operação Starlink!
+        <br><br>
+        Te desejo todo o sucesso e felicidade do mundo e pra sua família também!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music6', this)">Toca aí</button>
+        <div id="music6" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/28ATy9KFpbfUujbB8ZMkWc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme6', this)">Mostra aí</button>
+        <div id="meme6" class="hidden animate__animated">
+          <img src="aline.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 7 -->
+  <div id="phillipe" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Coé, Phillipe!</h2>
+      <p>
+        Tem muito o que falar de você rapaz, desde de todos os babados que você sempre deixava a galera informada,
+        de ser o mestre em fone CSI sendo sempre o que ajudava totalmente caso o cliente estivesse certo (o que era um milagre),
+        mas que também era seguro e impunha respeito caso o cliente estivesse errado (maioria das vezes).
+        <br><br>
+        Admito que tenho que aprender muito com você, sobre ter coragem de exigir o que é meu por direito, e de discordar
+        de alguma situação caso seja o caso, independente com quem seja, claro que com muita classe e sem tirar o tamanco
+        do pé do jeito que só você sabe fazer.
+        <br><br>
+        Aliás, eu achava muito massa quando você fazia eu e Elis parar de brigar um com o outro ksjdksjd. Enfim, muito
+        sucesso na sua carreira, tenho certeza que com sua competência, você vai longe!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music7', this)">Toca aí</button>
+        <div id="music7" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6cbZb9mVAc5s8HtwklLoI0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme7', this)">Mostra aí</button>
+        <div id="meme7" class="hidden animate__animated">
+          <img src="phillipe.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 8 -->
+  <div id="joyce" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Fala, Joyce!</h2>
+      <p>
+        A vontade que eu tinha mesmo era de escrever no começo: "se manca, joyce", mas não vou me abaixar
+        ao nível da gentalha, até porque meus advogados estão de férias nas Maldivas e não vão poder me ajudar
+        nessa situação, o que é triste, tendo em vista a vontade que eu tinha de xingar você bem muitão.
+        <br><br>
+        Papo sério agora (vou tentar, pelo menos), não sabia que só uma coisa que tinhamos em comum que era perturbar
+        Elis iria fazer a gente começar a conversar e depois da operação, sermos parceiros de fofoca e de falar mal dos
+        outros, coisa que é muito bom e admito que irei sentir falta.
+        <br><br>
+        Admiro muito a pessoa que você é (mesmo que um cadinho estranha, a figura de Harry Styles de 1,60m concorda comigo),
+        e tenho muito orgulho também por você estar focada em um futuro com seu amado e lindo Genilson (já disse que ele é bonito?)
+        procurando suas coisinhas pra montar sua casinha com ele. Desejo muita sorte e felicidade pra vocês dois e espero ver os
+        dois juntos como marido e mulher, se Deus quiser!
+        <br><br>
+        Espero poder me encontrar com a galera que eu gosto novamente e me divertir, e você tá convidada a ir também (eu disse que iria tentar).
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music8', this)">Toca aí</button>
+        <div id="music8" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4Dvkj6JhhA12EX05fT7y2e?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme8', this)">Mostra aí</button>
+        <div id="meme8" class="hidden animate__animated">
+          <img src="joyce.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 9 -->
+  <div id="julia" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Querida Júlia,</h2>
+      <p>
+        Eu de verdade, não sei nem descrever o quanto você é incrível e especial pra mim, sério mesmo. Era como eu
+        estava falando no teams com você estes dias, como que pode alguém que eu nunca vi na minha vida, que mora na
+        completa contramão de onde eu moro (e mais perigoso também), em um treinamento para ser apenas mais um CLT, eu conheceria
+        alguém que me marcaria de um jeito tão especial.
+        <br><br>
+        Você foi um dos elementos cruciais pra eu me divertir tanto naquele treinamento e também de ficar feliz sabendo
+        que assim que chegasse na operação, iria dar aquele abraço tão apertado em você, mesmo que por pouco tempo, já que a
+        dona no atendimento de fone está sempre numa correria pra cumprir todas as metas e ser elogiadas por todos os supervisores (inclusive
+        por mim também).
+        <br><br>
+        Não preciso nem dizer que tenho muito orgulho de você e que admiro muito a pessoa que você é, essa menina sensata,
+        super gentil, inteligente, atleta, sincera, amável, enfim... Muita coisa das quais não vou me lembrar de todas agora, mas
+        sei que você sabe o que eu penso. Vou sentir falta das nossas conversas sobre jogos, sobre Elis, sobre o quão perigoso é Macaíba,
+        e qualquer assunto muito profundo que aparecia do nada na nossa conversa.
+        <br><br>
+        Espero de verdade poder me encontrar com você de novo e conhecer sua amada, assim como quero te apresentar a minha amada e 
+        a gente sair pra comer algo ou jogar alguma coisa (ah, e não pode ser em Macaíba, tenho medo). Pode ter certeza que você tá
+        convidada pro meu casamento.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music9', this)">Toca aí</button>
+        <div id="music9" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2ARMv3BeIvezKw9fTvVcDI?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme9', this)">Mostra aí</button>
+        <div id="meme9" class="hidden animate__animated">
+          <img src="julia.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 10 -->
+  <div id="benny" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Benny, Benny...</h2>
+      <p>
+        EU SABIA! EU SABIA! Eu sabia que no fundo, cê gostava pelo menos um cadinho de mim! Mas enfim,
+        que bom que eu descobri isso a tempo kjsdkjsdkj. Mas antes de ir embora, queria dizer pela última
+        vez que eu dou muito valor a você, e por mais que não pareça, eu admiro você.
+        <br><br>
+        Acho você uma pessoa muito sincera e direto ao ponto, e falta muito desse tipo nos dias de hoje,
+        um profissional muito competente e que eu espero aprender com você um dia também. Pelo amor de 
+        Deus, para de dizer que você vai se matar ou cortar seus pulsos... Você é importante pra mim e pra
+        muita gente, é até pecado você ir embora desse jeito.
+        <br><br>
+        Enfim, de todo jeito, continue sendo incrível e juízo viu Benny? JUÍZO!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music10', this)">Toca aí</button>
+        <div id="music10" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5Ssv6DaKrW0HczVqx6zXdl?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme10', this)">Mostra aí</button>
+        <div id="meme10" class="hidden animate__animated">
+          <img src="benny.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 11 -->
+  <div id="amanda" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Tá bem, Amanda?</h2>
+      <p>
+        Eu sei que boa parte de nosso diálogo se resumia em basicamente perguntar como você estava, ou então
+        oferecendo algum doce que eu tava comendo, mas de todo jeito, não significa que você não era só mais
+        uma colega de trabalho, até porque era só com você que eu perguntava com aquela frequência se você estava
+        bem ksjdksjdsd.
+        <br><br>
+        No mais, agradeço por não ter atirado nenhum equipamento da sua P.A na minha cabeça por causa que todo
+        segundo, eu ficava perguntando se você estava bem, mas até aí você me ensinou uma coisa valiosa, lembro
+        que tinha dias que você dizia só "mais ou menos" ou "não muito", mas nem por isso, você se isolava ou deixava de sorrir
+        se alguém viesse com uma situação engraçada pra você.
+        <br><br>
+        Não é preciso estar bem 100% do tempo, mas cê me ensinou que tem que coontinuar vivendo mesmo abalado com
+        algo ou alguém. Muito obrigadoooo! Sucesso pra tiii!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music11', this)">Toca aí</button>
+        <div id="music11" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2DlHlPMa4M17kufBvI2lEN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme11', this)">Mostra aí</button>
+        <div id="meme11" class="hidden animate__animated">
+          <img src="amanda.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 13 -->
+  <div id="allef" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Grande Allef!</h2>
+      <p>
+        Não ironicamente, grande Allef, vai fazer muita falta de verdade nos meus dias, não tinha como
+        não dar certo essa amizade, levando em conta que o motivo que eu te conheci foi o suficiente pra
+        eternizar qualquer tipo de vínculo com você: você vendia sobremesas que envolviam chocolate.
+        <br><br>
+        Impossível não lembrar de seu humor quebrado que fazia todo mundo ao seu lado sorrir, sem contar
+        com seu ótimo gosto musical. Espero que você continue desta maneira que você é, um amigo leal, um
+        cara gentil, muito gente boa e que traz alegria (seja em forma de comida ou não) por onde quer que
+        você passe.
+        <br><br>
+        Fico muito triste que terei que me despedir por agora de brownies tão gostosos, mas posso garantir
+        que qualquer dia desses, eu peço um fardo só de brownie (e o tipo você já sabe, metade de chocolate branco e
+        a outra metade de chocolate). Sucesso meu querido! Você merece o mundo!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music13', this)">Toca aí</button>
+        <div id="music13" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6jbYpRPTEFl1HFKHk1IC0m?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme13', this)">Mostra aí</button>
+        <div id="meme13" class="hidden animate__animated">
+          <img src="allef.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 14 -->
+  <div id="ellen" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Para Ellen,</h2>
+      <p>
+        Sumindo do nada né, mas relaxe que as pessoas que eu costumo conhecer na minha vida, eu guardo
+        pra sempre no meu coração e você não é excessão. Admiro muito todas suas habilidades para as funções
+        que lhe são agregadas no nosso trabalho mas também admiro as que você exerce fora da operação.
+        <br><br>
+        Não tive muitas oportunidades de falar com você ou sair contigo mas tenho certeza que você sai de casa
+        tentando sempre exercer todos os frutos do Espírito, embora as vezes alguns clintes e até eu mesmo colocamos
+        à prova sua paciência, amor e paz kjsdkjdsk.
+        <br><br>
+        Fica na memória todas as conversas sem sentido e todas as brincadeiras que tivemos lá. Aliás, quero conhecer
+        Erick (aquele lindo maravilhoso) e quero ser convidado pro casamento de vocês, e podem ter certeza que estarão
+        convidados pra o meu. Sucesso pra ti Ellen! (E sim, eu gosto mesmo de você)
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music14', this)">Toca aí</button>
+        <div id="music14" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0TNY3DppDt3gDkHP1KNQTj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme14', this)">Mostra aí</button>
+        <div id="meme14" class="hidden animate__animated">
+          <img src="ellen.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 15 -->
+  <div id="izabella" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Salve, Izabella!</h2>
+      <p>
+        Vou indo nessa Iza, mas não sem antes deixar minha gratidão por ter tido o prazer de conhecer alguém tão
+        autêntica e espontânea (ou suscetível à piques de pensamentos intrusivos, você que decide) como você, e não
+        me arrependo nenhum pouco disso.
+        <br><br>
+        Embora a gente não tenha interagido tanto quanto eu gostaria, tenho certeza que a gente ainda se esbarra por aí
+        a fora, já que como você mesma disse, Natal é um átomo, quando você quiser pegar um ingresso na faixa, pode falar
+        comigo que eu ameaço meu irmão de morte e desenrolo isso pra tu skjdkjsd.
+        <br><br>
+        Continue sendo essa menina alegre que eu sei que você é, e espalhe essa luz por onde quer que você passe e 
+        não deixe ninguém te calar ou te impedir de ser quem você é! Abraços e espero te ver novamente!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music15', this)">Toca aí</button>
+        <div id="music15" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5tOi3ZjuElxSLsAdOz74Js?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme15', this)">Mostra aí</button>
+        <div id="meme15" class="hidden animate__animated">
+          <img src="izabella.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 16 -->
+  <div id="kaio" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Diz Kaio, seu lindo,</h2>
+      <p>
+        Você só pode ser dólar, euro, libra, porque real não pode ser. Pense num menino LINDO e GOSTOSO é você,
+        não é a toa que é modelo (e dos caros, viu?) e deveria ser garoto propaganda da Starlink pra ver se dá
+        uma cara nova pra operação (que atualmente tem cara de hospício).
+        <br><br>
+        Nunca vou me esquecer de você (com tanta beleza assim, impossível) e de todas nossa brincadeiras e como
+        tirávamos onda de Elis juntos, espero que você continue sendo esse cara incrível que você é e nunca perca
+        sua essência. Muito sucesso pra ti, meu lindão!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music16', this)">Toca aí</button>
+        <div id="music16" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/70Vdd1gx5tn84jkAU31ASv?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme16', this)">Mostra aí</button>
+        <div id="meme16" class="hidden animate__animated">
+          <img src="kaio.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 17 -->
+  <div id="joaovitor" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">É o homi, João Vitor!</h2>
+      <p>
+        Você, que passa o dia todo aprovando e reprovando as imagens com um olhar afiado, digno do
+        melhor BKO de Antônio, mas sempre trazendo seu jeito super gente boa para quem está perto de você
+        que é simplesmente indispensável. Pra não deixar a piada morrer, você ainda prometeu me dar 
+        aquela chave de jogo na Steam de presente de casamento, eu vou cobrar!
+        <br><br>
+        E, como se não bastasse, você também arrasa na pescaria, seria uma pessoa de se invejar
+        no tempo de Jesus alimentando uma multidão inteira. Valeu por ser esse cara incrível e por
+        fazer a diferença naquela operação! Sucesso, guerreiro!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music17', this)">Toca aí</button>
+        <div id="music17" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1180Pe0jjGNslftSXTrEKi?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme17', this)">Mostra aí</button>
+        <div id="meme17" class="hidden animate__animated">
+          <img src="joaovitor.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 18 -->
+  <div id="jhulye" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Agora com badges, Jhulye!</h2>
+      <p>
+        Dessa vez, estou indo embora, mas tenho certeza de que ainda vamos nos encontrar
+        por aí (talvez viajando para Brasília Teimosa ou passando pelas ruas obscuras de Mãe Luiza).
+        Então, não fica chateada, tá? E nem pense que eu te abandonei, porque, convenhamos,
+        quem nos abandonou primeiro foi você, né? Mudando para a Chargeback... sua safada.
+        <br><br>
+        Brincadeiras à parte, vou sentir muito sua falta. Faltará alguém para roubar os descansos
+        de pé da operação, para disputar tomada com os outros e para falar tudo na cara sem medo de
+        brigar com quem quer que fosse. Você é incrível (não muito paciente, é verdade) e leal a 
+        quem é leal com você.
+        <br><br>
+        Espero que a gente se encontre qualquer dia desses para dar boas risadas e,
+        claro, fofocar um pouco, que é algo que sempre fizemos muito bem juntos. Você é uma das
+        pessoas mais engraçadas que conheço, então nunca deixe de ser assim. Ah, e, por favor,
+        tente não ficar sem badges de novo, tá?
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music18', this)">Toca aí</button>
+        <div id="music18" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6qlb3j0zGqEe6uWJpQZGxP?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme18', this)">Mostra aí</button>
+        <div id="meme18" class="hidden animate__animated">
+          <img src="jhulye.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 19 -->
+  <div id="iago" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Boy Iago,</h2>
+      <p>
+        Eu sei que sempre que eu te chamava para uma conversa, você me respondia com um delicado
+        e gentil "o que é que tu quer?". Mas eu entendia que era só brincadeira e, na verdade,
+        eu adorava fazer isso só para te perturbar e chamar sua atenção. Porque você é um cara incrível.
+      <br><br>
+        De morador do Planalto para outro, preciso dizer que você é focado, gentil e muito
+        admirado pela galera da operação. Muita gente tem um respeito enorme pelo seu trabalho, e eu
+        me incluo nessa lista. Espero que você continue crescendo na empresa e que seu jump para
+        supervisor seja um sucesso. Tenho certeza de que muitas pessoas vão amar ser lideradas
+        por você.
+      <br><br>
+        Mesmo quando o cliente ameaçava você e sua família e enlouquecer a gente, você sempre 
+        manteve a calma, e isso é algo que admiro muito. Continue sendo esse
+        cara espetacular que você é. Espero um dia ter pelo menos 1% da paciência que você tem com
+        a gente. Sucesso na sua vida e em tudo que vier pela frente. Como eu sempre dizia para os
+        clientes, "fico aqui na torcida por ti". Sei que ainda vamos nos esbarrar pelas ruas do
+        Planalto.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music19', this)">Toca aí</button>
+        <div id="music19" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4ohps6RKcqCWMfK8GFcYE5?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme19', this)">Mostra aí</button>
+        <div id="meme19" class="hidden animate__animated">
+          <img src="iago.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 20 -->
+  <div id="antonio" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Grande Super Antônio,</h2>
+      <p>
+        Antônio, meu supervisor lindo, maravilhoso, cheiroso e incrível, além de sempre nos
+        orientar com maestria, você trouxe um toque de classe e bom humor para a equipe.
+        Mesmo quando a operação parecia estar caindo aos pedaços, devendo métrica a Deus e ao mundo, e a
+        Nubank cobrando a gente pior que agiota para bater as metas, você sempre manteve a calma
+        e tentou extrair o melhor de nós.
+      <br><br>
+        Perdão se em algum momento não consegui cumprir uma meta ou duas,
+        se talvez não fui tão assertivo com um cliente… Enfim, você me conhece e sabe que eu tentei.
+        Você é um cara incrível, e mesmo carregando tanta responsabilidade, consegue lidar com tudo
+        de forma leve, quebrando a tensão do dia a dia, sempre planejando um coffee para a equipe.
+      <br><br>
+        Você é divertido, gosta de conversar e nunca impediu ninguém de ser criativo, de ser… enfim,
+        de ser quem realmente eram. Espero que continue assim e que nossa equipe siga bem guiada
+        pela sua liderança. Admiro muito você, de verdade. Obrigado pelos conselhos, pelo apoio,
+        por tudo o que fez por mim (muitas vezes sem nem perceber.)
+      <br><br>
+        Espero um dia poder te apresentar minha noiva e também ter o prazer de conhecer seu esposo.
+        Tenho muito orgulho de ter tido você como líder. Muito obrigado por tudo. Até mais!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music20', this)">Toca aí</button>
+        <div id="music20" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/20I6sIOMTCkB6w7ryavxtO?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme20', this)">Mostra aí</button>
+        <div id="meme20" class="hidden animate__animated">
+          <img src="antonio.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 21 -->
+  <div id="anny" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Diva Anny,</h2>
+      <p>
+        Estou me despedindo, não do jeito que eu gostaria, mas não poderia ir embora sem dizer
+        o quanto você é especial para mim e o quanto gosto de você. Mesmo que eu já tenha dit
+        isso algumas bilhões de vezes na operação—e você sempre respondendo com um "sim, eu sei
+        disso, é difícil não gostar" (faço questão de reforçar).
+      <br><br>
+        Sempre admirei seu bom humor e sua paciência para nos ajudar com os casos. Mas o que eu mais
+        gostava era sua sinceridade. Você se desesperava com a gente quando os casos pareciam
+        impossíveis, quando nem você sabia bem para onde ir, mas, ainda assim, dava um jeito de nos
+        ajudar. E por isso, sou muito grato.
+      <br><br>
+        Desde o treinamento, eu já sabia que ia gostar de você, e dentro da operação isso
+        só se confirmou. Além de uma ótima profissional, você foi uma grande companhia, e eu me diverti
+        muito ao seu lado. Obrigado por tudo que fez por mim, pela equipe, pela operação.
+        Você é uma mulher dedicada, espetacular e cheia de qualidades (e como você mesma já me disse,
+        sabe muito bem disso.)
+      <br><br>
+        Um abração para você e para sua esposa. Espero um dia ter o prazer de conhecê-la,
+        assim como quero que você conheça minha noiva. Sucesso na sua carreira, Anne, você
+        merece o mundo. Muito obrigado por tudo.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music21', this)">Toca aí</button>
+        <div id="music21" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5jE48hhRu8E6zBDPRSkEq7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme21', this)">Mostra aí</button>
+        <div id="meme21" class="hidden animate__animated">
+          <img src="anny.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 22 -->
+  <div id="thiago" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Gatão Thiago,</h2>
+      <p>
+        Você sabe que é o cara mais lindo daquela operação, mas deixando de lado esses adjetivos
+        óbvios (porque, convenhamos, eu sempre te lembro disso), quero te agradecer de verdade. Na
+        minha concepção, você sempre foi um SME muito maduro. Não só me dava as respostas, mas
+        realmente me ajudava a sair de alguns apertos, me ensinava os procedimentos e
+        tinha paciência para explicar. 
+      <br><br>
+        Mesmo que eu não tenha acertado todas e, às vezes, tenha feito alguns procedimentos
+        errados, sei que no que você pôde me auxiliar, você auxiliou, e muito bem. Obrigado por
+        todo o suporte, cara. Você é um guerreiro. Espero que cresça cada vez mais na
+        empresa e receba todo o reconhecimento que merece.
+      <br><br>
+        Continue sendo esse cara incrível que admiro bastante. Quem é o gatão? Você, o próprio
+        Alex, o Leão! Fico muito feliz por ter te conhecido e espero que a gente se
+        esbarre em outro momento da vida.
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music22', this)">Toca aí</button>
+        <div id="music22" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3QAaKO6IpIWBZllV7mozNo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme22', this)">Mostra aí</button>
+        <div id="meme22" class="hidden animate__animated">
+          <img src="thiago.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 23 -->
+  <div id="abimael" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Inigualável Abimael,</h2>
+      <p>
+        Sei que não é costume meu estar me despedindo de você (geralmente, quem sai mais cedo é
+        você, né?) Mas dessa vez, vou ficar fora por um bom tempo... embora nada seja para sempre,
+        pode acreditar nisso.
+      <br><br>
+        Antes de tudo, quero te agradecer. Acredite se quiser, você me ensinou muita coisa,
+        principalmente a ser resiliente. Sempre que você dava aquele grito: "todo mundo, virar
+        para a fila 902", eu já sabia que vinha uma enxurrada de reclamação pra cima de você.
+        Mas você fazia o que tinha que ser feito, cumprindo seu papel, mesmo quando a
+        galera não entendia. Isso me ensinou muito sobre postura profissional.
+      <br><br>
+        Nunca vou esquecer dos dias em que, no íntimo, eu te perguntava se você estava bem e você
+        soltava aquele "amigo, tô lutando aqui". Mesmo rindo de nervoso, você seguia firme, e
+        isso me inspirava mais do que você imagina. Sempre gostei de pedir sua ajuda, porque sabia
+        que você era assertivo e estava disposto a auxiliar. Quando eu mudei para fone, foi você
+        quem me ajudou a entender as filas, e entrar na fila de CSI sempre tinha um gostinho a mais,
+        porque eu sabia que estava te ajudando em algo.
+      <br><br>
+        Você é uma pessoa incrível, e não canso de dizer isso. Continua sendo esse cara resiliente,
+        dedicado e, claro, lindo. Sucesso na sua jornada, e espero que as pessoas reclamem
+        menos de mudar para CSI. Um abraço!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music23', this)">Toca aí</button>
+        <div id="music23" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2FY7b99s15jUprqC0M5NCT?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme23', this)">Mostra aí</button>
+        <div id="meme23" class="hidden animate__animated">
+          <img src="abimael.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 24 -->
+  <div id="thaynara" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">E aí, Thaynara!</h2>
+      <p>
+        Antes de me despedir de todo mundo, queria tirar um momento especial para me despedir de
+        você. Quero te agradecer por tudo que você me ensinou, pelo que você insistiu em mim e
+        pelo tempo que me acompanhou. Sempre falei que gostava muito de você, e não era algo
+        automático ou algo que estava no roteiro. Eu realmente gosto de você, admiro a pessoa que
+        você é e a liderança que exerce.
+      <br><br>
+        Nunca te vi se exaltar com ninguém, você sempre pedia com carinho quando precisávamos mudar
+        de fila ou cumprir metas. Sua dedicação e gentileza sempre fizeram toda a diferença. Eu te
+        agradeço muito, de verdade. Seu profissionalismo me inspira, e tenho certeza de que você
+        só vai crescer ainda mais. Espero que sua faculdade termine da melhor forma e que sua
+        carreira seja ainda mais incrível do que já é. Você merece todo o sucesso do mundo.
+      <br><br>
+        E, por fim, só pra deixar claro mais uma vez: eu gosto muito de você! Até mais!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music24', this)">Toca aí</button>
+        <div id="music24" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47olmrMp03wALauGo4jRho?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme24', this)">Mostra aí</button>
+        <div id="meme24" class="hidden animate__animated">
+          <img src="thaynara.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <!-- Página do Amigo 25 -->
+  <div id="michele" class="card hidden animate__animated animate__fadeInUp">
+    <div class="friend-content">
+      <h2 class="animate__animated animate__zoomIn">Querida Michele,</h2>
+      <p>
+        Estou me despedindo do pessoal da operação, mas seria quase um pecado ir embora sem antes
+        me despedir da minha primeira líder. Lembro o quanto fiquei abalado quando você nos disse
+        que mudaríamos de liderança, porque eu realmente gostava muito do jeito que você era.
+      <br><br>
+        Meu primeiro feedback foi com você, e nunca esqueço disso. Seu jeito tão gentil e delicado
+        de se comunicar me ajudou a entender meu posicionamento profissional sem me sentir ofendido
+        ou incapaz. Você tem um dom para liderar e inspirar.
+      <br><br>
+        Tenho certeza de que você é uma mãe incrível, uma serva fiel de Deus, alguém que trabalha 
+        e luta todos os dias para continuar sendo essa mulher guerreira. Então, continue firme,
+        Michelle. Gosto muito da pessoa que você é, e fico feliz em saber que você também se alegra
+        com minhas conquistas, como quando pedi minha namorada em casamento.
+      <br><br>
+        Te desejo todo o sucesso do mundo. Que Deus continue derramando bênçãos sobre sua vida.
+        Continue sendo essa líder incrível que eu tive o privilégio de conhecer. Um abraço, e
+        espero te ver novamente!
+      </p>
+    </div>
+    <div class="bottom-section">
+      <!-- Coluna da Música -->
+      <div class="music-column">
+        <p><strong>Uma música que me lembra você (por nenhum motivo em particular):</strong></p>
+        <button onclick="revealMusic('music25', this)">Toca aí</button>
+        <div id="music25" class="hidden animate__animated">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6Dt1Z4peMHC3gfNtNevtBK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+      <!-- Coluna do Meme -->
+      <div class="meme-column">
+        <p><strong>Um meme que me lembra você (por vários motivos em particular)</strong></p>
+        <button onclick="revealMeme('meme25', this)">Mostra aí</button>
+        <div id="meme25" class="hidden animate__animated">
+          <img src="michele.png" alt="Meme" style="width:100%; border-radius:10px;">
+        </div>
+      </div>
+    </div>
+    <button onclick="goBack()">Voltar</button>
+  </div>
+
+  <footer>&copy; 2025 Yuri Dantas (Xexis). Todos os direitos reservados.</footer>
+
+  <script>
+    // Senhas de teste
+    const friendMapping = {
+      "pinscher": "elis",
+      "divarainha": "yuri",
+      "thugshaker": "robert",
+      "larilariê": "larissa",
+      "saci": "vitoria",
+      "stela": "aline",
+      "babado": "phillipe",
+      "affveyr": "joyce",
+      "macaiba": "julia",
+      "affqueodio": "benny",
+      "tabem?": "amanda",
+      "semanque": "livia",
+      "canalha": "allef",
+      "erick": "ellen",
+      "plataformanova": "izabella",
+      "lindogostoso": "kaio",
+      "grandebko": "joaovitor",
+      "brasiliateimosa": "jhulye",
+      "oquequetuquer": "iago",
+      "superlindo": "antonio",
+      "quemeogatao": "thiago",
+      "eugostodevc": "anny",
+      "vdcamigo": "thaynara",
+      "vceounico": "abimael",
+      "amelhor": "michele"
+    };
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value.trim();
+      const errorBox = document.getElementById('errorBox');
+      if (friendMapping[input]) {
+        const friendPageId = friendMapping[input];
+        document.getElementById('landing').classList.add('hidden');
+        errorBox.classList.add('hidden');
+        document.getElementById(friendPageId).classList.remove('hidden');
+      } else {
+        errorBox.innerText = "Senha incorreta, rapaz! Veja se escreveu certo!";
+        errorBox.classList.remove('hidden');
+        errorBox.classList.remove('animate__fadeOut');
+        errorBox.classList.add('animate__fadeIn');
+        setTimeout(() => {
+          errorBox.classList.remove('animate__fadeIn');
+          errorBox.classList.add('animate__fadeOut');
+          errorBox.addEventListener('animationend', function handleFadeOut() {
+            errorBox.classList.add('hidden');
+            errorBox.classList.remove('animate__fadeOut');
+            errorBox.removeEventListener('animationend', handleFadeOut);
+          });
+        }, 2000);
+      }
+    }
+
+    function goBack() {
+      document.getElementById('elis').classList.add('hidden');
+      document.getElementById('yuri').classList.add('hidden');
+      document.getElementById('robert').classList.add('hidden');
+      document.getElementById('larissa').classList.add('hidden');
+      document.getElementById('vitoria').classList.add('hidden');
+      document.getElementById('aline').classList.add('hidden');
+      document.getElementById('phillipe').classList.add('hidden');
+      document.getElementById('joyce').classList.add('hidden');
+      document.getElementById('julia').classList.add('hidden');
+      document.getElementById('benny').classList.add('hidden');
+      document.getElementById('amanda').classList.add('hidden');
+      document.getElementById('livia').classList.add('hidden');
+      document.getElementById('allef').classList.add('hidden');
+      document.getElementById('ellen').classList.add('hidden');
+      document.getElementById('izabella').classList.add('hidden');
+      document.getElementById('kaio').classList.add('hidden');
+      document.getElementById('joaovitor').classList.add('hidden');
+      document.getElementById('jhulye').classList.add('hidden');
+      document.getElementById('iago').classList.add('hidden');
+      document.getElementById('antonio').classList.add('hidden');
+      document.getElementById('thiago').classList.add('hidden');
+      document.getElementById('anny').classList.add('hidden');
+      document.getElementById('thaynara').classList.add('hidden');
+      document.getElementById('abimael').classList.add('hidden');
+      document.getElementById('michele').classList.add('hidden');
+      document.getElementById('landing').classList.remove('hidden');
+      document.getElementById('passwordInput').value = "";
+      const landingTitle = document.querySelector('#landing h1');
+      landingTitle.style.animation = 'none';
+      setTimeout(() => { landingTitle.style.animation = ''; }, 10);
+    }
+
+    function revealMusic(musicId, btn) {
+      btn.style.display = 'none';
+      const el = document.getElementById(musicId);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        el.classList.add('animate__fadeIn');
+      }
+    }
+
+    function revealMeme(id, btn) {
+      btn.style.display = 'none';
+      const el = document.getElementById(id);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        el.classList.add('animate__fadeIn');
+      }
+    }
+
+    const togglePassword = document.getElementById('togglePassword');
+    togglePassword.addEventListener('click', () => {
+      const passwordInput = document.getElementById('passwordInput');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePassword.innerText = '🙈';
+      } else {
+        passwordInput.type = 'password';
+        togglePassword.innerText = '👁️';
+      }
+    });
+  </script>
+</body>
+</html>
