@@ -1147,7 +1147,11 @@
   <footer>&copy; 2025 Yuri Dantas (Xexis). Todos os direitos reservados.</footer>
 
   <script>
-    // Senhas de teste
+    
+    const clickSound = newAudio(click.mp3);
+    const pencilSound = newAudio(pencil.mp3);
+      
+    // Senhas
     const friendMapping = {
       "pinscher": "elis",
       "divarainha": "yuri",
@@ -1227,7 +1231,9 @@
       document.getElementById('thaynara').classList.add('hidden');
       document.getElementById('abimael').classList.add('hidden');
       document.getElementById('michele').classList.add('hidden');
+      
       document.getElementById('landing').classList.remove('hidden');
+      pencilSound.play();
       document.getElementById('passwordInput').value = "";
       const landingTitle = document.querySelector('#landing h1');
       landingTitle.style.animation = 'none';
@@ -1235,6 +1241,7 @@
     }
 
     function revealMusic(musicId, btn) {
+      clickSound.play();
       btn.style.display = 'none';
       const el = document.getElementById(musicId);
       if (el.classList.contains('hidden')) {
@@ -1244,6 +1251,7 @@
     }
 
     function revealMeme(id, btn) {
+      clickSound.play();
       btn.style.display = 'none';
       const el = document.getElementById(id);
       if (el.classList.contains('hidden')) {
